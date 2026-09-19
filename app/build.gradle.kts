@@ -5,9 +5,7 @@ plugins {
 
 android {
     namespace = "com.timothy.week1assignment"
-    compileSdk {
-        version = release(37)
-    }
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.timothy.week1assignment"

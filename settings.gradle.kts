@@ -24,5 +24,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Week1Assignment"
 include(":app")
-include(":lib")
 include(":lib2")
+include(":lib")
