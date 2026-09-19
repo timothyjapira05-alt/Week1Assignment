@@ -3,36 +3,37 @@ package com.timothy.lib
 import kotlin.random.Random
 var user: User = User("", 50, 30, 0, 5, 5, false, 10, 0, 50, 30)
 fun Main() {
-    println("Insert your name")
+    println("What's your name?")
     val name = readln()
-    println("Hello $name")
+    println("Good luck, $name! You're gonna need it!")
     user.setUsername(name)
     MainMenu()
 }
 fun MainMenu() {
-    println("What you're going to do?")
+    println("What're you going to do?")
     println("1. View Stats")
     println("2. Enter Battle")
-    println("Choose:")
+    println("Choose: ")
     val choose = readlnOrNull()!!.toInt()
     if (choose == 1) {
         viewStats()
     } else if(choose == 2) {
         enterBattle()
     } else {
-        println("Please choose the following menu!")
+        println("Please choose the menu!")
         MainMenu()
     }
     MainMenu()
 }
 fun viewStats() {
     while (true) {
-        println("---- ${user.getUsername()}'s Stats ----")
+        println("---- ${user.getUsername()}'s STATS ----")
         println("HP = ${user.getHp()}/50")
         println("Mana = ${user.getMana()}/30")
         println("Kill needed to evolve = ${user.getKill()}/5")
         println("Health Potions held = ${user.getHealthPotion()}")
         println("Mana Potions held = ${user.getManaPotion()}")
+        println("-----------------------------------")
         println("1. Drink Mana Potion")
         println("2. Drink Health Potion")
         println("3. Rename Self")
@@ -77,7 +78,7 @@ fun drinkHealth(){
     }
 }
 fun rename() {
-    println("Enter Name:")
+    println("Enter Name: ")
     val name: String = readlnOrNull()!!
     user.setUsername(name)
     println("Rename Successfull!")
@@ -97,16 +98,16 @@ fun enterBattle() {
         }
         while (true) {
             if (turn % 2 == 0) {
-                println("--- Battle ---")
+                println("--- BATTLE ---")
                 println(user.getUsername())
                 println("HP: ${user.getHp()}/50")
                 println("Mana: ${user.getMana()}/30")
                 println("Health Potions: ${user.getHealthPotion()}")
                 println("Mana Potions: ${user.getManaPotion()}")
-                println()
+                println("")
                 println(enemy.getName())
                 println("HP: ${enemy.getHp()}")
-                println("Type: ${enemy.getType()}")
+                println("Type: ${enemy.getType()} mon")
                 println("----------")
                 println("1. Water Attack")
                 println("2. Grass Attack")
