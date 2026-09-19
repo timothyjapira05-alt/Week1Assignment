@@ -2,31 +2,31 @@ package com.timothy.lib
 
 import kotlin.random.Random
 var user: User = User("", 50, 30, 0, 5, 5, false, 10, 0, 50, 30)
-fun main(){
+fun Main() {
     println("Insert your name")
     val name = readln()
     println("Hello $name")
     user.setUsername(name)
-    mainMenu()
+    MainMenu()
 }
-fun mainMenu(){
+fun MainMenu() {
     println("What you're going to do?")
     println("1. View Stats")
     println("2. Enter Battle")
     println("Choose:")
     val choose = readlnOrNull()!!.toInt()
-    if (choose == 1){
+    if (choose == 1) {
         viewStats()
-    }else if(choose == 2){
+    } else if(choose == 2) {
         enterBattle()
-    }else{
+    } else {
         println("Please choose the following menu!")
-        mainMenu()
+        MainMenu()
     }
-    mainMenu()
+    MainMenu()
 }
-fun viewStats(){
-    while (true){
+fun viewStats() {
+    while (true) {
         println("---- ${user.getUsername()}'s Stats ----")
         println("HP = ${user.getHp()}/50")
         println("Mana = ${user.getMana()}/30")
@@ -39,62 +39,60 @@ fun viewStats(){
         println("4. Back")
         println("Choose:")
         val choose = readlnOrNull()!!.toInt()
-        if (choose == 1){
+        if (choose == 1) {
             drinkMana()
-        }else if(choose == 2){
+        } else if(choose == 2) {
             drinkHealth()
-        }else if (choose == 3){
+        } else if (choose == 3) {
             rename()
-        }else if (choose == 4){
+        } else if (choose == 4) {
             break
         }
-
     }
-
 }
-fun drinkMana(){
-    if (user.getManaPotion()>0){
-        if (user.getMana().plus(15) >= user.getMaxMana()){
+fun drinkMana() {
+    if (user.getManaPotion()>0) {
+        if (user.getMana().plus(15) >= user.getMaxMana()) {
             user.setMana(user.getMaxMana())
             user.setManaPotion(user.getManaPotion()-1)
-        }else{
+        } else {
             user.setMana(user.getMana()+15)
             user.setManaPotion(user.getManaPotion()-1)
         }
-    }else{
-        println("Mana Potion tidak cukup")
+    } else{
+        println("Not enough mana potion")
     }
 }
 fun drinkHealth(){
-    if (user.getHealthPotion()>0){
+    if (user.getHealthPotion()>0) {
         if (user.getHp().plus(25) >= user.getMaxHp()){
             user.setHp(user.getMaxHp())
             user.setHealthPotion(user.getHealthPotion()-1)
-        }else{
+        } else{
             user.setHp(user.getHp()+25)
             user.setHealthPotion(user.getHealthPotion()-1)
         }
-    }else{
-        println("Health Potion tidak cukup")
+    } else {
+        println("not enougth Health Potion")
     }
 }
-fun rename(){
+fun rename() {
     println("Enter Name:")
     val name: String = readlnOrNull()!!
     user.setUsername(name)
     println("Rename Successfull!")
 }
-fun enterBattle(){
-    if (user.getHp() > 0){
+fun enterBattle() {
+    if (user.getHp() > 0) {
         val a = Random.nextInt(1,4)
         val hp = Random.nextInt(30, 51)
         val enemy: Enemy
         var turn: Int = 0
-        if (a == 1){
+        if (a == 1) {
             enemy = Enemy("Grassmon", hp, "Grass")
-        }else if (a == 2){
+        } else if (a == 2) {
             enemy = Enemy("Firemon", hp, "Fire")
-        }else{
+        } else {
             enemy = Enemy("Watermon", hp, "Water")
         }
         while (true) {
@@ -123,7 +121,7 @@ fun enterBattle(){
                     } else {
                         enemy.setHp(enemy.getHp() - user.getAtk())
                     }
-                    if (user.getIsSuper()){
+                    if (user.getIsSuper()) {
                         user.setHp(user.getHp()+ user.getKill())
                     }
                     user.setMana(user.getMana()-10)
@@ -133,7 +131,7 @@ fun enterBattle(){
                     } else {
                         enemy.setHp(enemy.getHp() - user.getAtk())
                     }
-                    if (user.getIsSuper()){
+                    if (user.getIsSuper()) {
                         user.setHp(user.getHp()+ user.getKill())
                     }
                     user.setMana(user.getMana()-10)
@@ -143,7 +141,7 @@ fun enterBattle(){
                     } else {
                         enemy.setHp(enemy.getHp() - user.getAtk())
                     }
-                    if (user.getIsSuper()){
+                    if (user.getIsSuper()) {
                         user.setHp(user.getHp()+ user.getKill())
                     }
                     user.setMana(user.getMana()-10)
@@ -159,12 +157,12 @@ fun enterBattle(){
                         drinkMana()
                     }
                 } else if (choose == 5) {
-                    println("Lah cupu banget kocak")
+                    println("hahaha scaredy cat")
                     break
                 }
                 turn++
             } else {
-                println("Enemy Attack you!")
+                println("Enemy attack you!")
                 user.setHp(user.getHp() - 10)
                 turn++
             }
@@ -173,15 +171,14 @@ fun enterBattle(){
                 user.setKill(user.getKill() + 1)
                 break
             }
-            if (user .getHp()<=0){
+            if (user .getHp()<=0) {
                 println("You Lose!")
                 user.setHp(0)
                 break
             }
         }
-
-    }else{
-        println("Your HP is 0, you  can't join the battle")
+    } else {
+        println("Your HP is 0, you can't join the battle")
     }
 }
 

@@ -20,23 +20,31 @@ class User (
         }
     }
     fun getHp(): Int = hp
-    fun setHp(value: Int) { hp = value }
+    fun setHp(value: Int) { hp = value
+    }
     fun getMana(): Int = mana
-    fun setMana(value: Int) { mana = value }
+    fun setMana(value: Int) { mana = value
+    }
     fun getKill(): Int = kill
-    fun setKill(value: Int) { kill = value }
+    fun setKill(value: Int) { kill = value
+    }
     fun getManaPotion(): Int = manaPotion
-    fun setManaPotion(value: Int) { manaPotion = value }
+    fun setManaPotion(value: Int) { manaPotion = value
+    }
     fun getHealthPotion(): Int = healthPotion
-    fun setHealthPotion(value: Int) { healthPotion = value }
+    fun setHealthPotion(value: Int) { healthPotion = value
+    }
     fun getIsSuper(): Boolean = isSuper
-    fun setKill(value: Boolean) { isSuper = value }
+    fun setKill(value: Boolean) { isSuper = value
+    }
     fun getAtk(): Int = atk
     fun setAtk(value: Int){atk = value}
     fun getMaxHp(): Int = maxHp
-    fun setMaxHp(value: Int) { maxHp = value }
+    fun setMaxHp(value: Int) { maxHp = value
+    }
     fun getMaxMana(): Int = maxMana
-    fun setMaxMana(value: Int) { maxMana = value }
+    fun setMaxMana(value: Int) { maxMana = value
+    }
     fun checkSuper(){
         if (kill >=5){
             if(count == 0){

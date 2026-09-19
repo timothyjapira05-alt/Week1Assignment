@@ -7,9 +7,12 @@ class Enemy(
 )
 {
     fun getName(): String = name
-    fun setName(value: String) { name = value }
+    fun setName(value: String) { name = value
+    }
     fun getHp(): Int = HP
-    fun setHp(value: Int) { HP = value }
+    fun setHp(value: Int) { HP = value
+    }
     fun getType(): String = type
-    fun setType(value: String) { type = value }
+    fun setType(value: String) { type = value
+    }
 }
